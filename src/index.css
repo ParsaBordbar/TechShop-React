@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary: #1E1E1E;
+}
+
+.make-it-primary{
+  background-color:var(--primary)
+}
+
+.content{
+  height: 74.4rem;
+  align-items: center;
+  font-family: 'Roboto';
+}

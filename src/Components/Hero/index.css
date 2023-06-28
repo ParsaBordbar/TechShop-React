@@ -1,0 +1,10 @@
+.bg-image{
+    background-image: url('../../assets/R.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    padding: 2rem;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
