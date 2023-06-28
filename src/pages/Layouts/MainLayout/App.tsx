@@ -1,15 +1,26 @@
-import { Nav,NavItem } from "../../../Components/Navbar";
-import { Outlet } from "react-router-dom";
+import { DropdownMenu, Nav,NavItem, DropdownItem } from "../../../Components/Navbar";
+import { Link, Outlet } from "react-router-dom";
 import Footer from "../../../Components/Footer";
 
 function Layout(){
   return (
     <>
     <Nav>
-      <NavItem tittle="Home" linkTo="/"/>
-      <NavItem tittle="Phones" linkTo="/phone"/>
+      <Link to="/"><NavItem tittle="Home" /></Link>
+      
+      <NavItem tittle="Phones">
+      <DropdownMenu>
+          <DropdownItem title="iPhone" linkTo="phone"/>
+          <DropdownItem title="Samsung"/>
+      </DropdownMenu>
+      </NavItem>
+      <NavItem tittle="Keyboards" linkTo="/phone">
+        <DropdownMenu>
+          <DropdownItem title="Membarian"/>
+          <DropdownItem title="Mechanical"/>
+        </DropdownMenu>
+      </NavItem>
       <NavItem tittle="SMT" linkTo="/phone"/>
-      <NavItem tittle="Keyboards" linkTo="/phone"/>
       <NavItem tittle="Monitors" linkTo="/phone"/>
       <NavItem tittle="Pc" linkTo="/phone"/>
       <NavItem tittle="Deals" linkTo="/phone"/>

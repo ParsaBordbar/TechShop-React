@@ -1,23 +1,35 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom"
-import { ReactComponent as MenuSvg } from "./logo.svg";
-interface NavItemType{
-  tittle: string;
-  linkTo: string;
-  icon?: string;
-  children?: string;
+import { ReactComponent as Logo } from "../../assets/SVGs/Menu.svg";
+import { ReactComponent as SearchSVG } from "../../assets/SVGs/searchSVG.svg";
+
+function DropdownItem(props:any) {
+  return(
+    <Link to = {props.linkTo} className=" hover:text-red-600 transition duration-150 ease-out hover:ease-in">
+      {props.title}
+      {props.children}
+    </Link>
+  )
+};
+function DropdownMenu(props: any) {
+    return(
+      <div className="dropdown">
+        <div className="menu flex flex-col gap-2 absolute w-max pt-2 p-2.5 rounded-2xl bg-slate-800">
+          {props.children}
+        </div>
+      </div>
+    )
 }
 
-function NavItem(props: NavItemType) {
+function NavItem(props: any) {
   const [open, setOpen] = useState(false);
 
   return (
-    <li className="nav-item cursor-pointer hover:text-red-600 transition duration-150 ease-out hover:ease-in">
-      <Link to={props.linkTo} className="icon-button" onClick={() => setOpen(!open)}>
-        {props.tittle}
-        {props.icon}
-      </Link>
-
+    <li className="nav-item cursor-pointer">
+      <a className="icon-button  hover:text-red-600 transition duration-150 ease-out hover:ease-in" onClick={() => setOpen(!open)}>
+           {props.tittle}
+           {props?.icon} 
+      </a>
       {open && props.children}
     </li>
   );
@@ -32,12 +44,16 @@ const Nav = (props:any) => {
           </ul>
           
           <ul className="flex">
-            <img className=" justify-self-end cursor-pointer" src={('/src/assets/Group 310.png')} alt="" />
-            <MenuSvg />
+            <SearchSVG className=" justify-self-end cursor-pointer" />
+            <Logo className="justify-self-end cursor-pointer">
+              <DropdownMenu>
+              <DropdownItem title="Mechanical"/>
+              </DropdownMenu>
+            </Logo>
           </ul>
         </div>
       </nav>
     )
 }
   
-export {Nav, NavItem}  
+export {Nav, NavItem, DropdownMenu, DropdownItem}  
