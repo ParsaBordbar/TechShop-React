@@ -1,11 +1,14 @@
 import { Outlet } from "react-router-dom";
+import AuthPage from "../../dashboard/user/auth/index" 
+import { Navbar } from "../../../Components/Navbar";
+
 
 const AuthLayout = () => {
     return(
         <>
-        <div className="flex justify-center items-center m-28 rounded-3xl">
+            <Navbar/>
+            <AuthPage />
             <Outlet/>
-        </div>
         </>
     );
 }

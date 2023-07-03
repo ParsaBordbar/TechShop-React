@@ -16,6 +16,7 @@ const CatCard = (props: CardEl) =>{
                 <p className=" text-slate-100">
                     {props.desc}
                 </p>
+                    <img className="pic-format" src={props.src} alt="" />
             </div>
             </>
             ) 

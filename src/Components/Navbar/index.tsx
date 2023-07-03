@@ -1,7 +1,8 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom"
-import { ReactComponent as Logo } from "../../assets/SVGs/Menu.svg";
 import { ReactComponent as SearchSVG } from "../../assets/SVGs/searchSVG.svg";
+import { ReactComponent as UserSVG } from "../../assets/SVGs/userSVG.svg";
+
 
 function DropdownItem(props:any) {
   return(
@@ -14,7 +15,7 @@ function DropdownItem(props:any) {
 function DropdownMenu(props: any) {
     return(
       <div className="dropdown">
-        <div className="menu flex flex-col gap-2 absolute w-max pt-2 p-2.5 rounded-2xl bg-slate-800">
+        <div className="menu flex flex-col gap-2 absolute w-max pt-2 p-1.5 rounded-xl bg-zinc-800 text-sm">
           {props.children}
         </div>
       </div>
@@ -22,7 +23,7 @@ function DropdownMenu(props: any) {
 }
 
 function NavItem(props: any) {
-  const [open, setOpen] = useState(false);
+  var [open, setOpen] = useState(false);
 
   return (
     <li className="nav-item cursor-pointer">
@@ -42,18 +43,46 @@ const Nav = (props:any) => {
           <ul className="flex gap-6 font-semibold ms-28">
               {props.children}
           </ul>
-          
-          <ul className="flex">
-            <SearchSVG className=" justify-self-end cursor-pointer" />
-            <Logo className="justify-self-end cursor-pointer">
-              <DropdownMenu>
-              <DropdownItem title="Mechanical"/>
-              </DropdownMenu>
-            </Logo>
-          </ul>
         </div>
       </nav>
     )
 }
-  
-export {Nav, NavItem, DropdownMenu, DropdownItem}  
+
+
+function Navbar(){
+  return(
+      <Nav>
+  <div className="flex gap-x-96">
+    <div className="flex gap-4">
+    <Link to="/"><NavItem tittle="Home" /></Link>
+    <NavItem tittle="Phones">
+    <DropdownMenu>
+        <DropdownItem title="iPhone" linkTo="/phone"/>
+        <DropdownItem title="Samsung"/>
+        <DropdownItem title="Honor" linkTo="phone"/>
+        <DropdownItem title="Xiami"/>
+    </DropdownMenu>
+    </NavItem>
+    <NavItem tittle="Keyboards">
+      <DropdownMenu>
+        <DropdownItem title="Membarian"/>
+        <DropdownItem title="Mechanical"/>
+      </DropdownMenu>
+    </NavItem>
+    <NavItem tittle="SMT"/>
+    <NavItem tittle="Monitors"/>
+    <NavItem tittle="Pc"/>
+    <NavItem tittle="Deals"/>
+    </div>
+    <div className="flex gap-1 ms-96 ps-32">
+      <NavItem icon = {<SearchSVG linkTo="/phone"/>}/>
+      <Link to="/auth" >
+        <UserSVG/>
+      </Link>
+    </div>
+  </div>
+  </Nav>
+  )
+}
+
+export {Navbar}  

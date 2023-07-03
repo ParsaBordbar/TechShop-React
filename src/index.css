@@ -15,3 +15,39 @@
   align-items: center;
   font-family: 'Roboto';
 }
+
+.spacer {
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  overflow: hidden;
+  background-image: url('/src/assets/SVGs/smallWave.svg');
+}
+
+
+.spacer2 {
+  aspect-ratio: 900/100;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer2 {
+  overflow: hidden;
+  border-radius: .5rem;
+  background-image: url('/src/assets/SVGs/wave-haikei.svg');
+}
+
+
+.rotate{
+  transform: rotate(180deg);
+}
+
+.pic-format{
+  overflow: hidden;
+  width: 80%;
+}
