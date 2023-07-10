@@ -1,21 +1,12 @@
-import PhoneElement from "../../Components/PhoneElments";
+import ImageMasonry from "../../Components/MasonaryMUI";
 
 const PhoneList = () =>{
     return(
         <>
-        <div className="flex justify-center">
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED as FUCK" variant="small"/>
-            <PhoneElement variant="tablet"/>
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED" />
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED as FUCK" variant="small"/>
-            <PhoneElement/>
-        </div>
-        <div className="flex justify-center">
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED as FUCK" variant="small"/>
-            <PhoneElement variant="tablet"/>
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED as FUCK" variant="small"/>
-            <PhoneElement title="iphone14" desc="iphone is OVERPRICED" />
-            <PhoneElement/>
+        <div className="flex justify-center layer3 spacer3">
+            <div className="mt-10">
+                <ImageMasonry/>        
+            </div>
         </div>
         </>
     )

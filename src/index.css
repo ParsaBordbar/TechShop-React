@@ -4,10 +4,15 @@
 
 :root{
   --primary: #1E1E1E;
+  --primaryLight: #ffffff;
 }
 
 .make-it-primary{
   background-color:var(--primary)
+}
+
+.make-it-primaryLight{
+  background-color:var(--primaryLight)
 }
 
 .content{
@@ -17,7 +22,7 @@
 }
 
 .spacer {
-  aspect-ratio: 960/300;
+  aspect-ratio: 960/500;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -27,7 +32,6 @@
   overflow: hidden;
   background-image: url('/src/assets/SVGs/smallWave.svg');
 }
-
 
 .spacer2 {
   aspect-ratio: 900/100;
@@ -42,6 +46,19 @@
   background-image: url('/src/assets/SVGs/wave-haikei.svg');
 }
 
+.spacer3 {
+  aspect-ratio: 1/1;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer3 {
+  overflow: hidden;
+  border-radius: .5rem;
+  background-image: url('/src/assets/SVGs/phoneBG.svg');
+}
+
 
 .rotate{
   transform: rotate(180deg);
@@ -50,4 +67,27 @@
 .pic-format{
   overflow: hidden;
   width: 80%;
+}
+
+.hoverEffect{
+  color: White;
+  font-weight: 500;
+}
+
+
+.hoverEffect:hover {
+  transition-duration: .4s;
+  color: rgb(206, 0, 0);
+}
+
+.itemMasonary{
+  border-radius: 1.2rem;
+  border: none;
+}
+
+.itemMasonary:hover{
+  transition-duration: .4s;
+  border: solid rgb(243, 243, 243) .3rem;
+  border-radius: 1.8rem;
+  filter: grayscale(80% );
 }
