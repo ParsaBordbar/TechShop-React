@@ -1,28 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import "../../index.css";
+import { motion, useScroll } from "framer-motion";
 
-const CustomScroll: React.FC = () => {
-  const customScrollRef = useRef<HTMLDivElement>(null);
+export default function CustomScroll() {
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (customScrollRef.current) {
-        const scrollTop = window.scrollY;
-        const documentHeight = document.body.clientHeight;
-        const windowHeight = window.innerHeight;
-        const scrollPercent = scrollTop / (documentHeight - windowHeight);
-        const scrollPercentRounded = Math.round(scrollPercent * 100);
-        customScrollRef.current.style.width = `${scrollPercentRounded}%`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  return <div id="scroll" ref={customScrollRef} />;
-};
-
-export default CustomScroll;
+  return (
+      <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}/>
+  );
+}

@@ -1,16 +1,15 @@
 import { Navbar } from "../../../Components/Navbar";
 import {  Outlet } from "react-router-dom";
 import Footer from "../../../Components/Footer";
-import CustomScroll from "../../../Components/CustomScroll";
 import { useAuth } from "../../../hooks/useAuth/useAuth";
-
+import CustomScroll from "../../../Components/CustomScroll";
 
 function Layout(){
   useAuth()
   return (
     <>
-    <CustomScroll />
     <Navbar/>
+    <CustomScroll/>
     <Outlet />
     <Footer/>
     </>

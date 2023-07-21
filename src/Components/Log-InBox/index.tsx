@@ -61,6 +61,7 @@ const LogInBox = () =>{
                     <LoadingButton sx={{background:"#1E1E1E", borderRadius: '.8rem',}} type="submit" variant="contained" size='large'>Register</LoadingButton>
                 </form>
             </div>
+
         </div>
     )
 }

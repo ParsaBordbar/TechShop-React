@@ -56,7 +56,6 @@
 
 .layer3 {
   overflow: hidden;
-  border-radius: .5rem;
   background-image: url('/src/assets/SVGs/phoneBG.svg');
 }
 
@@ -77,8 +76,8 @@
 
 
 .hoverEffect:hover {
-  transition-duration: .4s;
-  color: rgb(206, 0, 0);
+  transition-duration: .3s;
+  color: #3f50b5;
 }
 
 .itemMasonary{
@@ -87,58 +86,23 @@
 }
 
 .itemMasonary:hover{
-  transition: .5s;
+  transition: .6s;
   border: .2rem;
   border-radius: 2rem;
 }
 
 
-#scroll {
-  height: 10px;
-  background-color: red;
+.progress-bar {
   position: fixed;
-  /* width: 50%; */
+  top: .5;
+  left: 0;
+  right: 0;
+  height: .5rem;
+  background: #3f50b5;
+  transform-origin: 0%;
+  z-index: 1;
 }
 
-.gray {
-  width: 100%;
-  background-color: #333;
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-}
-
-.blue {
-  width: 100%;
-  background-color: lightblue;
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-}
-
-#scroll {
-  height: 10px;
-  background-color: red;
-  position: fixed;
-  /* width: 50%; */
-}
-
-.gray {
-  width: 100%;
-  background-color: #ff0202;
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-}
-
-.blue {
-  width: 100%;
-  background-color: lightblue;
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
+::-webkit-scrollbar{
+  display: none;
 }

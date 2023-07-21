@@ -4,7 +4,3 @@
     background-size: 100%; 
     padding: 2rem;
 }
-
-::-webkit-scrollbar{
-    display: none;
-}
