@@ -1,9 +1,13 @@
 import ImageMasonry from "../../Components/MasonaryMUI";
 
 const PhoneList = () =>{
+    function handleClose(event: MouseEvent<HTMLLIElement, MouseEvent>): void {
+        throw new Error("Function not implemented.");
+    }
+
     return(
-        <>
-        <div className="flex justify-center layer3 spacer3">
+        <>  
+        <div className="flex layer3 spacer3 flex-col items-center">
             <div className="mt-10">
                 <ImageMasonry/>        
             </div>

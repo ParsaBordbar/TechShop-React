@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import { ReactComponent as SearchSVG } from "../../assets/SVGs/searchSVG.svg";
 import { ReactComponent as UserSVG } from "../../assets/SVGs/userSVG.svg";
+import { MenuItem } from "@mui/material";
+import DropdownMenuEL from "../MenuMUI";
 
 
 function DropdownItem(props:any) {
@@ -50,37 +52,71 @@ const Nav = (props:any) => {
 
 
 function Navbar(){
+  function handleClose(event: MouseEvent<HTMLLIElement, MouseEvent>): void {
+    throw new Error("Function not implemented.");
+  }
+
   return(
-      <Nav>
-  <div className="flex gap-x-96">
-    <div className="flex gap-4">
-    <Link to="/"><NavItem tittle="Home" /></Link>
-    <NavItem tittle="Phones">
-    <DropdownMenu>
-        <DropdownItem title="iPhone" linkTo="/phone"/>
-        <DropdownItem title="Samsung"/>
-        <DropdownItem title="Honor" linkTo="phone"/>
-        <DropdownItem title="Xiami"/>
-    </DropdownMenu>
-    </NavItem>
-    <NavItem tittle="Keyboards">
-      <DropdownMenu>
-        <DropdownItem title="Membarian"/>
-        <DropdownItem title="Mechanical"/>
-      </DropdownMenu>
-    </NavItem>
-    <NavItem tittle="SMT"/>
-    <NavItem tittle="Monitors"/>
-    <NavItem tittle="Pc"/>
-    <NavItem tittle="Deals"/>
-    </div>
-    <div className="flex gap-1 ms-96 ps-32">
-      <NavItem icon = {<SearchSVG linkTo="/phone"/>}/>
-      <Link to="/auth" >
-        <UserSVG/>
+  <Nav>
+    
+    <div className="flex gap-x-96">
+      <div className="flex gap-4">
+      <Link to="/">
+        <DropdownMenuEL name='Home'/>
       </Link>
+
+      <DropdownMenuEL name='phone'>
+      <Link to = '/phone'>
+        <MenuItem onClick={handleClose}>iPhone</MenuItem>
+      </Link>
+        <MenuItem onClick={handleClose}>Samsung</MenuItem>
+        <MenuItem onClick={handleClose}>Xiami</MenuItem>
+      </DropdownMenuEL>
+
+      <DropdownMenuEL name='keyboards'>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Mechanical</MenuItem>
+      </Link>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Membrean</MenuItem>
+      </Link>
+      </DropdownMenuEL>
+
+      <DropdownMenuEL name='Monitors'>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Gaming</MenuItem>
+      </Link>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Oled</MenuItem>
+      </Link>
+      </DropdownMenuEL>
+
+      <DropdownMenuEL name='PC'>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Gaming</MenuItem>
+      </Link>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Oled</MenuItem>
+      </Link>
+      </DropdownMenuEL>
+
+      <DropdownMenuEL name='Mouse'>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Gaming</MenuItem>
+      </Link>
+      <Link to = '/keyboards'>
+        <MenuItem onClick={handleClose}>Oled</MenuItem>
+      </Link>
+      </DropdownMenuEL>
+      
+      </div>
+      <div className="flex gap-1 ms-96">
+        <NavItem icon = {<SearchSVG linkTo="/phone"/>}/>
+        <Link to="/auth" >
+          <UserSVG/>
+        </Link>
+      </div>
     </div>
-  </div>
   </Nav>
   )
 }

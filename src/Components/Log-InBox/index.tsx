@@ -4,7 +4,11 @@ import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField/TextField";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import axios from 'axios'
+import { instance } from "../../api/constants";
+import { LoadingButton } from "@mui/lab";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+
 
 type IRegisterData = {
     email: string,
@@ -22,15 +26,19 @@ const LogInBox = () =>{
         mode:'onSubmit'
     })
 
+    const navigate = useNavigate()
+
     const handleForm = (data: IRegisterData) =>{
         console.log(data)
-        axios.post('https://reqres.in/api/register', data).then(res => {
+        instance.post('/api/register', data).then(res => {
             console.log(res);
+            Cookies.set('token', 'value', { expires: 7 })
+            navigate('/')
         })
     }
 
     return(
-        <div className="make-it-primaryLight mt-20 rounded-2xl w-1/3 h-2/4 flex flex-col items-center justify-center shadow-black shadow-xl">
+        <div className="make-it-primaryLight mt-20 rounded-2xl w-1/3 h-2/4 flex flex-col items-center justify-center shadow-black shadow-xl">        
             <div className=" flex flex-col mt-7 justify-center items-center">
                 <h1 className="text-3xl font-bold"> Sign-In </h1>
                 <p className="p-2">Register now</p>
@@ -50,7 +58,7 @@ const LogInBox = () =>{
                         />
                     </Box>
                     {errors.password?.message}
-                    <input className="mt-10 mb-5 outline hover:bg-slate-700 hover:text-gray-50 rounded-xl text-xl transition  duration-400 ease-out hover:ease-in h-10" type="submit" />
+                    <LoadingButton sx={{background:"#1E1E1E", borderRadius: '.8rem',}} type="submit" variant="contained" size='large'>Register</LoadingButton>
                 </form>
             </div>
         </div>
